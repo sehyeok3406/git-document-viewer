@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "highlight.js/styles/github-dark.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fafafa;
+  --foreground: #171717;
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    Pretendard,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.prose-shell :where(h1, h2, h3, h4) {
+  color: rgb(23 23 23);
+  font-weight: 700;
+  line-height: 1.25;
+  scroll-margin-top: 5rem;
+}
+
+.dark .prose-shell :where(h1, h2, h3, h4) {
+  color: rgb(250 250 250);
+}
+
+.prose-shell h1 {
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.prose-shell h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.prose-shell h3 {
+  margin-top: 1.6rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.2rem;
+}
+
+.prose-shell p,
+.prose-shell ul,
+.prose-shell ol {
+  margin: 0.9rem 0;
+}
+
+.prose-shell ul,
+.prose-shell ol {
+  padding-left: 1.5rem;
+}
+
+.prose-shell ul {
+  list-style: disc;
+}
+
+.prose-shell ol {
+  list-style: decimal;
+}
+
+.prose-shell li {
+  margin: 0.25rem 0;
+}
+
+.prose-shell hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid rgb(229 229 229);
+}
+
+.dark .prose-shell hr {
+  border-top-color: rgb(38 38 38);
+}
+
+.prose-shell input[type="checkbox"] {
+  margin-right: 0.45rem;
+}
