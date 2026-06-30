@@ -4,6 +4,7 @@ import { BookOpen, FolderGit2, Settings } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { DocsSourceSwitcher } from "@/components/DocsSourceSwitcher";
 import { GithubConnectButton } from "@/components/GithubConnectButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getSelectedDocsConfig } from "@/lib/config-store";
@@ -62,11 +63,9 @@ export function HomeClient() {
           <div className="mt-8 max-w-2xl rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-950">
             <div className="flex items-start gap-3">
               <FolderGit2 className="mt-0.5 h-5 w-5 text-neutral-500" aria-hidden />
-              <div className="min-w-0">
-                <div className="truncate font-semibold">
-                  {config.owner}/{config.repo}
-                </div>
-                <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="min-w-0 flex-1">
+                <DocsSourceSwitcher currentConfig={config} onSelect={setConfig} />
+                <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
                   {config.branch} · {config.docsPath || "/"}
                 </p>
               </div>

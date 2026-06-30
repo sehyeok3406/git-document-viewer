@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { DocsSidebar } from "@/components/DocsSidebar";
+import { DocsSourceSwitcher } from "@/components/DocsSourceSwitcher";
 import { MarkdownSearch } from "@/components/MarkdownSearch";
 import { MobileDocsDrawer } from "@/components/MobileDocsDrawer";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -17,6 +18,7 @@ export function AppShell({
   currentPath,
   currentTitle,
   toc,
+  onConfigChange,
   children,
 }: {
   config: SelectedDocsConfig;
@@ -24,6 +26,7 @@ export function AppShell({
   currentPath?: string;
   currentTitle: string;
   toc: TocItem[];
+  onConfigChange?: (config: SelectedDocsConfig) => void;
   children: React.ReactNode;
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -41,12 +44,8 @@ export function AppShell({
             <Menu className="h-5 w-5" aria-hidden />
           </button>
           <div className="min-w-0">
-            <Link href="/docs" className="block truncate text-sm font-semibold">
-              git-document-viewer
-            </Link>
-            <p className="truncate text-xs text-neutral-500 dark:text-neutral-500">
-              {config.owner}/{config.repo} · {currentTitle}
-            </p>
+            <DocsSourceSwitcher currentConfig={config} onSelect={onConfigChange} />
+            <p className="mt-0.5 truncate text-xs text-neutral-500 dark:text-neutral-500">{currentTitle}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">

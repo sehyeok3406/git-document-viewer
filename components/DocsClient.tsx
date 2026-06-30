@@ -60,6 +60,14 @@ export function DocsClient({ initialSlug }: { initialSlug: string }) {
   const title = content && currentDoc ? extractTitle(content, currentDoc.displayName) : currentDoc?.displayName ?? "문서";
   const toc = useMemo(() => extractToc(content), [content]);
 
+  function switchConfig(nextConfig: SelectedDocsConfig) {
+    setConfig(nextConfig);
+    setTree(null);
+    setContent("");
+    setError(null);
+    router.push("/docs");
+  }
+
   if (!config) {
     return (
       <main className="min-h-screen bg-neutral-50 p-4 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
@@ -97,7 +105,14 @@ export function DocsClient({ initialSlug }: { initialSlug: string }) {
   }
 
   return (
-    <AppShell config={config} root={tree.root} currentPath={currentDoc.path} currentTitle={title} toc={toc}>
+    <AppShell
+      config={config}
+      root={tree.root}
+      currentPath={currentDoc.path}
+      currentTitle={title}
+      toc={toc}
+      onConfigChange={switchConfig}
+    >
       <div className="mx-auto max-w-3xl">
         <div className="mb-5 border-b border-neutral-200 pb-4 dark:border-neutral-800">
           <p className="break-all text-xs text-neutral-500 dark:text-neutral-500">

@@ -1,4 +1,5 @@
 export type SelectedDocsConfig = {
+  configId?: string;
   installationId: string;
   owner: string;
   repo: string;
