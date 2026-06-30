@@ -9,12 +9,27 @@ import { docHref } from "@/lib/routes";
 import { searchDocuments } from "@/lib/search";
 import type { MarkdownIndexItem, SelectedDocsConfig } from "@/lib/types";
 
-export function MarkdownSearch({ config }: { config: SelectedDocsConfig }) {
+export function MarkdownSearch({
+  config,
+  onSelect,
+}: {
+  config: SelectedDocsConfig;
+  onSelect?: () => void;
+}) {
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<MarkdownIndexItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const configKey = config.configId || `${config.installationId}:${config.owner}/${config.repo}:${config.branch}:${config.docsPath}`;
+
+  useEffect(() => {
+    setQuery("");
+    setIndex([]);
+    setLoading(false);
+    setLoaded(false);
+    setError(null);
+  }, [configKey]);
 
   useEffect(() => {
     if (!query.trim() || loaded || loading) return;
@@ -53,7 +68,10 @@ export function MarkdownSearch({ config }: { config: SelectedDocsConfig }) {
               key={result.path}
               href={docHref(result.slug)}
               className="block rounded-md px-3 py-2 transition hover:bg-neutral-100 dark:hover:bg-neutral-900"
-              onClick={() => setQuery("")}
+              onClick={() => {
+                setQuery("");
+                onSelect?.();
+              }}
             >
               <div className="truncate text-sm font-semibold text-neutral-950 dark:text-neutral-50">{result.title}</div>
               <div className="truncate text-xs text-neutral-500 dark:text-neutral-500">{result.path}</div>

@@ -34,7 +34,7 @@ export function AppShell({
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
       <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b border-neutral-200 bg-white/95 px-3 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95 lg:px-5">
-        <div className="flex min-w-0 items-center gap-2">
+        <div className="flex min-w-0 flex-1 items-center gap-2">
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
@@ -44,11 +44,16 @@ export function AppShell({
             <Menu className="h-5 w-5" aria-hidden />
           </button>
           <div className="min-w-0">
-            <DocsSourceSwitcher currentConfig={config} onSelect={onConfigChange} />
+            <DocsSourceSwitcher
+              currentConfig={config}
+              onSelect={onConfigChange}
+              panelPlacement="header"
+              buttonClassName="h-9 max-w-[calc(100vw-11rem)] sm:max-w-[22rem]"
+            />
             <p className="mt-0.5 truncate text-xs text-neutral-500 dark:text-neutral-500">{currentTitle}</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <div className="hidden w-72 md:block">
             <MarkdownSearch config={config} />
           </div>

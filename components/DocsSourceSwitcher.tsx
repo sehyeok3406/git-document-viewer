@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { Check, ChevronDown, FolderGit2, Plus, Search } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -19,9 +20,13 @@ function sourceDetail(config: SelectedDocsConfig) {
 export function DocsSourceSwitcher({
   currentConfig,
   onSelect,
+  buttonClassName,
+  panelPlacement = "inline",
 }: {
   currentConfig: SelectedDocsConfig | null;
   onSelect?: (config: SelectedDocsConfig) => void;
+  buttonClassName?: string;
+  panelPlacement?: "header" | "inline";
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
@@ -70,7 +75,10 @@ export function DocsSourceSwitcher({
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex h-10 max-w-[min(22rem,calc(100vw-6rem))] items-center gap-2 rounded-md border border-neutral-200 bg-white px-3 text-left transition hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900"
+        className={clsx(
+          "inline-flex h-10 max-w-[min(22rem,calc(100vw-6rem))] items-center gap-2 rounded-md border border-neutral-200 bg-white px-3 text-left transition hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900",
+          buttonClassName,
+        )}
         aria-expanded={open}
         aria-haspopup="menu"
       >
@@ -80,7 +88,14 @@ export function DocsSourceSwitcher({
       </button>
 
       {open ? (
-        <div className="absolute left-0 top-11 z-50 w-[min(24rem,calc(100vw-2rem))] overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-950">
+        <div
+          className={clsx(
+            "z-50 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-950",
+            panelPlacement === "header"
+              ? "fixed left-3 right-3 top-14 sm:absolute sm:left-0 sm:right-auto sm:top-11 sm:w-[min(24rem,calc(100vw-2rem))]"
+              : "absolute left-0 top-11 w-[min(24rem,calc(100vw-2rem))]",
+          )}
+        >
           <label className="flex h-11 items-center gap-2 border-b border-neutral-200 px-3 dark:border-neutral-800">
             <Search className="h-4 w-4 text-neutral-500" aria-hidden />
             <input

@@ -7,12 +7,21 @@ import Link from "next/link";
 import { docHref } from "@/lib/routes";
 import type { DocNode } from "@/lib/types";
 
-function TreeNode({ node, currentPath }: { node: DocNode; currentPath?: string }) {
+function TreeNode({
+  node,
+  currentPath,
+  onNavigate,
+}: {
+  node: DocNode;
+  currentPath?: string;
+  onNavigate?: () => void;
+}) {
   if (node.type === "file") {
     const active = node.path === currentPath;
     return (
       <Link
         href={docHref(node.slug ?? "")}
+        onClick={onNavigate}
         className={clsx(
           "flex min-w-0 items-center gap-2 rounded-md px-2 py-1.5 text-sm transition",
           active
@@ -33,16 +42,28 @@ function TreeNode({ node, currentPath }: { node: DocNode; currentPath?: string }
         <span className="truncate">{node.displayName}</span>
       </div>
       <div className="ml-3 space-y-1 border-l border-neutral-200 pl-2 dark:border-neutral-800">
-        {node.children?.map((child) => <TreeNode key={child.path} node={child} currentPath={currentPath} />)}
+        {node.children?.map((child) => (
+          <TreeNode key={child.path} node={child} currentPath={currentPath} onNavigate={onNavigate} />
+        ))}
       </div>
     </div>
   );
 }
 
-export function DocsSidebar({ root, currentPath }: { root: DocNode; currentPath?: string }) {
+export function DocsSidebar({
+  root,
+  currentPath,
+  onNavigate,
+}: {
+  root: DocNode;
+  currentPath?: string;
+  onNavigate?: () => void;
+}) {
   return (
     <nav className="space-y-2" aria-label="문서 목록">
-      {root.children?.map((node) => <TreeNode key={node.path} node={node} currentPath={currentPath} />)}
+      {root.children?.map((node) => (
+        <TreeNode key={node.path} node={node} currentPath={currentPath} onNavigate={onNavigate} />
+      ))}
     </nav>
   );
 }

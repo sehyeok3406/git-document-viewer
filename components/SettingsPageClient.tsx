@@ -104,33 +104,37 @@ export function SettingsPageClient() {
                 return (
                   <div
                     key={savedConfigId}
-                    className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-800 dark:bg-neutral-950"
+                    className="flex flex-col gap-3 rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:flex-row sm:items-center"
                   >
-                    <FolderGit2 className="h-4 w-4 shrink-0 text-neutral-500" aria-hidden />
-                    <div className="min-w-0 flex-1">
-                      <div className="truncate text-sm font-semibold">{savedConfig.repoFullName || `${savedConfig.owner}/${savedConfig.repo}`}</div>
-                      <div className="truncate text-xs text-neutral-500 dark:text-neutral-500">
-                        {savedConfig.branch} · {savedConfig.docsPath || "/"}
+                    <div className="flex min-w-0 flex-1 items-start gap-3">
+                      <FolderGit2 className="mt-0.5 h-4 w-4 shrink-0 text-neutral-500" aria-hidden />
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-sm font-semibold">{savedConfig.repoFullName || `${savedConfig.owner}/${savedConfig.repo}`}</div>
+                        <div className="truncate text-xs text-neutral-500 dark:text-neutral-500">
+                          {savedConfig.branch} · {savedConfig.docsPath || "/"}
+                        </div>
                       </div>
+                      {selected ? <Check className="h-4 w-4 shrink-0" aria-hidden /> : null}
                     </div>
-                    {selected ? <Check className="h-4 w-4 shrink-0" aria-hidden /> : null}
-                    <button
-                      type="button"
-                      onClick={() => selectConfig(savedConfig)}
-                      className="inline-flex h-9 items-center justify-center rounded-md border border-neutral-200 px-3 text-sm font-semibold transition hover:bg-neutral-100 disabled:cursor-default disabled:opacity-50 dark:border-neutral-800 dark:hover:bg-neutral-900"
-                      disabled={selected}
-                    >
-                      선택
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => removeConfig(savedConfigId)}
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-red-200 text-red-700 transition hover:bg-red-50 dark:border-red-950 dark:text-red-300 dark:hover:bg-red-950/30"
-                      aria-label="문서 소스 삭제"
-                      title="문서 소스 삭제"
-                    >
-                      <Trash2 className="h-4 w-4" aria-hidden />
-                    </button>
+                    <div className="flex shrink-0 gap-2 self-end sm:self-auto">
+                      <button
+                        type="button"
+                        onClick={() => selectConfig(savedConfig)}
+                        className="inline-flex h-9 items-center justify-center rounded-md border border-neutral-200 px-3 text-sm font-semibold transition hover:bg-neutral-100 disabled:cursor-default disabled:opacity-50 dark:border-neutral-800 dark:hover:bg-neutral-900"
+                        disabled={selected}
+                      >
+                        선택
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => removeConfig(savedConfigId)}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-red-200 text-red-700 transition hover:bg-red-50 dark:border-red-950 dark:text-red-300 dark:hover:bg-red-950/30"
+                        aria-label="문서 소스 삭제"
+                        title="문서 소스 삭제"
+                      >
+                        <Trash2 className="h-4 w-4" aria-hidden />
+                      </button>
+                    </div>
                   </div>
                 );
               })}

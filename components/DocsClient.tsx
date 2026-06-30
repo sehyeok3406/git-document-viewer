@@ -76,21 +76,21 @@ export function DocsClient({ initialSlug }: { initialSlug: string }) {
     );
   }
 
-  if (treeLoading || !tree) {
-    return (
-      <main className="min-h-screen bg-neutral-50 p-4 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
-        <div className="mx-auto max-w-3xl rounded-lg border border-neutral-200 bg-white p-6 text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400">
-          문서 트리를 불러오는 중입니다.
-        </div>
-      </main>
-    );
-  }
-
   if (error) {
     return (
       <main className="min-h-screen bg-neutral-50 p-4 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <div className="mx-auto max-w-3xl">
           <ErrorState message={error} />
+        </div>
+      </main>
+    );
+  }
+
+  if (treeLoading || !tree) {
+    return (
+      <main className="min-h-screen bg-neutral-50 p-4 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
+        <div className="mx-auto max-w-3xl rounded-lg border border-neutral-200 bg-white p-6 text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400">
+          문서 트리를 불러오는 중입니다.
         </div>
       </main>
     );

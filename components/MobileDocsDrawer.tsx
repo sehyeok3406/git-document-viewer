@@ -42,10 +42,10 @@ export function MobileDocsDrawer({
           </button>
         </div>
         <div className="border-b border-neutral-200 p-3 dark:border-neutral-800">
-          <MarkdownSearch config={config} />
+          <MarkdownSearch config={config} onSelect={onClose} />
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto p-3">
-          <DocsSidebar root={root} currentPath={currentPath} />
+          <DocsSidebar root={root} currentPath={currentPath} onNavigate={onClose} />
         </div>
       </aside>
     </div>
