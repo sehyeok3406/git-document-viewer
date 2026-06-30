@@ -1,0 +1,137 @@
+﻿### 01_Character\01_Player\01_Rifleman\01_Common
+ 1440 x 1080   rifleman_Common.png
+ 1440 x 1080   rifleman_Common_Attack.png
+ 7200 x 7200   rifleman_Common_Death.png
+  900 x 900    rifleman_Common_Hit.png
+  630 x 630    rifleman_Common_Idle.png
+ 1800 x 1440   rifleman_Common_Parrying.png
+ 1200 x 1200   rifleman_Common_parrying_melee.png
+ 1920 x 1920   rifleman_Skill_AreaBurst.png
+  840 x 840    rifleman_Skill_Recovery.png
+ 1200 x 900    rifleman_Skill_Taunt.png
+ 2250 x 2250   rifleman_Skill_TripleBurst.png
+### 01_Character\01_Player\02_Sniper\01_Common
+ 1920 x 1440   sniper_Common_Attack.png
+ 7200 x 7200   sniper_Common_Death.png
+  900 x 900    sniper_Common_Hit.png
+  720 x 720    sniper_Common_Idle.png
+ 2250 x 2250   sniper_Common_Parrying1.png
+ 1800 x 1800   sniper_Common_Parrying2.png
+ 1800 x 1440   sniper_drone_Death.png
+  600 x 150    sniper_drone_idle.png
+ 1575 x 1260   sniper_drone_Skill_ExecuteOperation.png
+ 1350 x 1350   sniper_drone_Skill_PowerBooster.png
+ 1350 x 1350   sniper_drone_Skill_RevoreryBooster.png
+ 2400 x 1920   sniper_Skill_PrecisionShot.png
+ 1350 x 1080   sniper_Skill_PrecisionShot_Recovery.png
+### 01_Character\01_Player\03_Commissar\01_Common
+ 1440 x 1080   commissar_Common_Attack.png
+ 7380 x 7380   commissar_Common_Death.png
+  900 x 900    commissar_Common_Hit.png
+ 1200 x 600    commissar_Common_Idle.png
+ 1560 x 1170   commissar_Skill_ContaminationShot.png
+ 2100 x 1680   commissar_Skill_ForceSuppression.png
+ 7500 x 9000   Commissar_Skill_Parring_1.png
+ 2250 x 2700   Commissar_Skill_Parring_2.png
+ 1500 x 1200   Commissar_Skill_Recovery.png
+ 5700 x 5745   commissar_Skill_SPSupply.png
+### 01_Character\02_Enemy\001_Penguin_Rifleman\01_Common
+ 1200 x 900    Penguin_Rifleman_Common_Attack.png
+ 1110 x 1110   Penguin_Rifleman_Common_Death.png
+  810 x 510    Penguin_Rifleman_Common_Idle.png
+ 1440 x 1440   Penguin_Rifleman_Skill_ChargeShot.png
+  840 x 630    Penguin_Rifleman_Skill_Heal.png
+ 1440 x 1440   Penguin_Rifleman_Skill_TripleBurst.png
+### 01_Character\02_Enemy\002_Penguin_Commander\01_Common
+  900 x 900    Penguin_Commander_Common_Attack.png
+  840 x 840    Penguin_Commander_Common_Death.png
+  810 x 510    Penguin_Commander_Common_Idle.png
+ 1200 x 1200   Penguin_Commander_Skill_Chargeshot.png
+ 1200 x 1200   Penguin_Commander_Skill_FourBurst.png
+ 1200 x 1200   Penguin_Commander_Skill_Grenade.png
+### 01_Character\02_Enemy\003_Penguin_Sniper\01_Common
+ 1440 x 1440   Penguin_Sniper_Common_Attack.png
+ 1200 x 1200   Penguin_Sniper_Common_Death.png
+  636 x 423    Penguin_Sniper_Common_idle.png
+### 01_Character\02_Enemy\004_Penguin_Berserker\01_Common
+  630 x 630    Penguin_Berserker_Common_Attack.png
+  960 x 720    Penguin_Berserker_Common_Attack_Fail.png
+  840 x 840    Penguin_Berserker_Common_Death.png
+  540 x 360    Penguin_Berserker_Common_Idle.png
+  840 x 630    Penguin_Berserker_Common_Move_Forward.png
+  840 x 840    Penguin_Berserker_Common_Move_Retreat.png
+ 1350 x 900    Penguin_Berserker_Skill_Burst.png
+ 1200 x 900    Penguin_Berserker_Skill_Throw.png
+ 1350 x 1350   Penguin_Berserker_Skill_TwoBurst.png
+### 01_Character\02_Enemy\005_Penguin_Pingu\01_Common
+  900 x 900    Penguin_Pingu_Common_Attack.png
+  840 x 840    Penguin_Pingu_Common_Death.png
+  630 x 840    Penguin_Pingu_Common_Gunup.png
+  435 x 336    Penguin_Pingu_Common_Hit.png
+  630 x 420    Penguin_Pingu_Common_Idle.png
+ 1200 x 900    Penguin_Pingu_Skill_Needle.png
+  900 x 900    Penguin_Pingu_Skill_TwoBurst.png
+### 01_Character\02_Enemy\005_Penguin_Pingu\01_Common\Mech
+ 2280 x 2280   Penguin_Pingumech_Common_Attack.png
+ 3150 x 2520   Penguin_Pingumech_Common_Death.png
+ 4617 x 4599   Penguin_Pingumech_Common_GetInMech.png
+ 1149 x 486    Penguin_Pingumech_Common_Hit.png
+ 1440 x 960    Penguin_Pingumech_Common_Idle.png
+ 1710 x 1140   Penguin_Pingumech_Pointer_Pointing.png
+ 2016 x 1431   Penguin_Pingumech_Skill_Gunup.png
+ 2040 x 1530   Penguin_Pingumech_Skill_LaserAttack.png
+ 2160 x 2160   Penguin_Pingumech_Skill_Missile_10.png
+ 2160 x 2160   Penguin_Pingumech_Skill_Missile_11.png
+ 2160 x 2160   Penguin_Pingumech_Skill_Missile_12.png
+ 2160 x 1620   Penguin_Pingumech_Skill_Missile_6.png
+ 2160 x 1620   Penguin_Pingumech_Skill_Missile_7.png
+ 2160 x 1620   Penguin_Pingumech_Skill_Missile_8.png
+ 2160 x 2160   Penguin_Pingumech_Skill_Missile_9.png
+ 2550 x 2040   Penguin_Pingumech_Skill_RadioactiveAttack.png
+ 2160 x 2700   Penguin_Pingumech_Skill_TwoBurst.png
+### 01_Character\03_Etc
+   90 x 36     character_shadow.png
+ 1152 x 162    recovery_effect.png
+  936 x 24     recovery_effect_board.png
+ 2466 x 396    select_enemy.png
+ 2124 x 231    select_player.png
+  333 x 135    text_buff.png
+  258 x 126    text_damage_critical.png
+  174 x 78     text_damage_normal.png
+  207 x 117    text_heal.png
+### 02_UI\04_HUD
+ 2916 x 1976   ActionSelectPanel.png
+ 1932 x 3496   Character_HUD2.png
+ 1616 x 948    Gauge.png
+ 1312 x 92     HP.png
+  208 x 80     MP.png
+  928 x 240    Panel.png
+### 02_UI\01_Banner
+  832 x 104    enemy_Penguin_Berserker.png
+  832 x 104    enemy_Penguin_Commander.png
+  832 x 104    enemy_Penguin_Rifleman.png
+  832 x 104    player_Commissar.png
+  832 x 104    player_Rifleman.png
+  832 x 104    player_Sniper.png
+   40 x 32     timeline_arrow.png
+   76 x 46     timeline_numbers.png
+### 02_UI\02_Portrait
+  588 x 800    Commissar_portrait_idle.png
+  400 x 800    Flamethrower_portrait_idle.png
+ 2316 x 1408   Protrait.png
+  400 x 800    Rifleman_portrait_idle.png
+  400 x 800    Rocket_portrait_idle.png
+  400 x 800    Sniper_portrait_idle.png
+### 02_UI\05_Icon
+ 1500 x 448    Effect_Icon.png
+  404 x 152    Effect_Icon_etc.png
+  320 x 152    Element_Gauge_Icon.png
+ 1496 x 192    Element_Icon.png
+### 03_Background\01_TitleScene
+10240 x 8640   Title_Sheet_1.png
+10240 x 7200   Title_Sheet_2.png
+### 03_Background\02_CombatScene
+ 2250 x 1380   ice planet_1.png
+ 2250 x 1380   ice planet_2.png
+ 2250 x 1380   ice planet_3.png
+ 2250 x 1380   ice planet_4.png
