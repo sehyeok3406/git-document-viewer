@@ -33,8 +33,10 @@ async function handleOAuthCallback(request: NextRequest, code: string) {
     return response;
   }
 
+  const installationIds = installations.map((installation) => String(installation.id));
   const redirectUrl = new URL("/setup/repositories", request.nextUrl.origin);
-  redirectUrl.searchParams.set("installationId", String(installations[0].id));
+  redirectUrl.searchParams.set("installationIds", installationIds.join(","));
+  if (installationIds.length === 1) redirectUrl.searchParams.set("installationId", installationIds[0]);
 
   const response = NextResponse.redirect(redirectUrl);
   response.cookies.delete(OAUTH_STATE_COOKIE);

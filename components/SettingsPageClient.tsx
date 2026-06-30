@@ -48,7 +48,7 @@ export function SettingsPageClient() {
             </dl>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="/setup/repositories"
+                href="/api/github/login"
                 className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-neutral-200 px-4 text-sm font-semibold transition hover:bg-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-900"
               >
                 <RotateCcw className="h-4 w-4" aria-hidden />

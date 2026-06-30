@@ -8,22 +8,23 @@ import { fetchJson } from "@/lib/client-api";
 import type { RepositorySummary } from "@/lib/types";
 
 export function RepositorySelector({
-  installationId,
+  installationIds,
   onSelect,
 }: {
-  installationId: string;
+  installationIds: string[];
   onSelect: (repository: RepositorySummary) => void;
 }) {
   const [repositories, setRepositories] = useState<RepositorySummary[]>([]);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const installationIdsKey = installationIds.join(",");
 
   useEffect(() => {
     let ignore = false;
     setLoading(true);
     setError(null);
-    fetchJson<{ repositories: RepositorySummary[] }>("/api/github/repositories", { installationId })
+    fetchJson<{ repositories: RepositorySummary[] }>("/api/github/repositories", { installationIds: installationIdsKey })
       .then((data) => {
         if (!ignore) setRepositories(data.repositories);
       })
@@ -36,7 +37,7 @@ export function RepositorySelector({
     return () => {
       ignore = true;
     };
-  }, [installationId]);
+  }, [installationIdsKey]);
 
   const filteredRepositories = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();

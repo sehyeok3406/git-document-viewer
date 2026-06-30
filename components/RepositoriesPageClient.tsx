@@ -13,17 +13,26 @@ import type { RepositorySummary } from "@/lib/types";
 export function RepositoriesPageClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [installationId, setInstallationId] = useState<string | null>(null);
+  const [installationIds, setInstallationIds] = useState<string[]>([]);
 
   useEffect(() => {
-    const id = searchParams.get("installationId") || getSetupDraft().installationId || null;
-    setInstallationId(id);
-    if (id) saveSetupDraft({ installationId: id });
+    const draft = getSetupDraft();
+    const idsFromQuery = searchParams
+      .get("installationIds")
+      ?.split(",")
+      .map((id) => id.trim())
+      .filter(Boolean);
+    const singleId = searchParams.get("installationId") || draft.installationId;
+    const ids = idsFromQuery?.length ? idsFromQuery : draft.installationIds?.length ? draft.installationIds : singleId ? [singleId] : [];
+
+    setInstallationIds(ids);
+    if (ids.length > 0) saveSetupDraft({ installationId: ids[0], installationIds: ids });
   }, [searchParams]);
 
   function selectRepository(repository: RepositorySummary) {
     saveSetupDraft({
-      installationId: installationId ?? undefined,
+      installationId: repository.installationId,
+      installationIds,
       owner: repository.owner,
       repo: repository.name,
       branch: repository.defaultBranch,
@@ -48,8 +57,8 @@ export function RepositoriesPageClient() {
             저장소를 선택하면 다음 단계에서 Markdown 문서가 들어 있는 폴더를 문서 루트로 지정할 수 있습니다.
           </p>
         </div>
-        {installationId ? (
-          <RepositorySelector installationId={installationId} onSelect={selectRepository} />
+        {installationIds.length > 0 ? (
+          <RepositorySelector installationIds={installationIds} onSelect={selectRepository} />
         ) : (
           <EmptyState title="GitHub App 설치 정보가 없습니다" description="먼저 GitHub App을 설치하고 돌아와야 합니다." action={<GithubConnectButton />} />
         )}

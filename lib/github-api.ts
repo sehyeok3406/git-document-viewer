@@ -19,6 +19,7 @@ export async function listInstallationRepositories(installationId: string): Prom
   });
 
   return repositories.map((repo) => ({
+    installationId,
     id: repo.id,
     name: repo.name,
     fullName: repo.full_name,

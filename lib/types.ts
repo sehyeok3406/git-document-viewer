@@ -11,6 +11,7 @@ export type SelectedDocsConfig = {
 
 export type SetupDraft = {
   installationId?: string;
+  installationIds?: string[];
   owner?: string;
   repo?: string;
   branch?: string;
@@ -21,6 +22,7 @@ export type SetupDraft = {
 };
 
 export type RepositorySummary = {
+  installationId: string;
   id: number;
   name: string;
   fullName: string;
